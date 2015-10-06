@@ -1,0 +1,14 @@
+<map id="RoboticLine" name="RoboticLine">
+<area shape="rect" id="node3" href="$classRobot.html" title="Instance of the class includes all the data structures and methods related to a robot. " alt="" coords="800,1091,1009,1359"/>
+<area shape="rect" id="node5" href="$classRobotPowerMode.html" title="It represents the power saving mode of the robot. " alt="" coords="1345,585,1535,794"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="1551,289,1632,367"/>
+<area shape="rect" id="node16" href="$classInterRobotOperation.html" title="The inter&#45;robot operation corresponding to the workpiece/weldment handling. " alt="" coords="1265,1128,1473,1323"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="1527,6,1656,98"/>
+<area shape="rect" id="node8" href="$structProjectParameters.html" title="The structure with desired properties for the generated instances. " alt="" coords="331,920,559,1027"/>
+<area shape="rect" id="node9" href="$classInterval.html" title="{Interval\&lt; uint32_t \&gt;\n|&#45; mFrom\l&#45; mTo\l|+ Interval()\l+ Interval()\l+ from()\l+ to()\l}" alt="" coords="374,621,516,757"/>
+<area shape="rect" id="node10" href="$classInterval.html" title="{Interval\&lt; double \&gt;\n|&#45; mFrom\l&#45; mTo\l|+ Interval()\l+ Interval()\l+ from()\l+ to()\l}" alt="" coords="382,260,516,396"/>
+<area shape="rect" id="node11" href="$classInterval.html" title="{Interval\&lt; int32_t \&gt;\n|&#45; mFrom\l&#45; mTo\l|+ Interval()\l+ Interval()\l+ from()\l+ to()\l}" alt="" coords="199,621,333,757"/>
+<area shape="rect" id="node14" href="$classActivity.html" title="The base class incorporating common properties for robot operations and movements. " alt="" coords="988,150,1136,506"/>
+<area shape="rect" id="node18" href="$classTimeLag.html" title="Instance of TimeLag class defines a time relation between two different robots. " alt="" coords="1023,614,1123,765"/>
+<area shape="rect" id="node20" href="$classPair.html" title="Auxiliary class encapsulating two activities to form collision or spatial compatibility pair..." alt="" coords="1165,607,1281,772"/>
+</map>

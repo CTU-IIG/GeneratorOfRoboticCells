@@ -1,0 +1,62 @@
+The purpose of this program is to generate optimization problems (datasets)
+for the energy optimization of robotic cells.
+
+The program GeneratorOfDatasets is distributed
+under the terms of the GNU General Public License.
+
+Authors:
+1) Libor Bukata (bukatlib@fel.cvut.cz)
+2) Premysl Sucha (suchap@fel.cvut.cz)
+3) Zdenek Hanzalek (hanzalek@fel.cvut.cz)
+4) Pavel Burget (pavel.burget@fel.cvut.cz)
+
+Prerequisites:
+1) good C++11 compiler
+2) CMake 2.8.4 and newer
+3) optionally doxygen for generation of documentation
+
+How to install on Linux, MacOS, and Unix-like systems:
+1) download and extract the source codes of this program
+2) enter the directory with the extracted files
+3) create and enter a separate building directory: 'mkdir build/; cd build/'
+3) configure the program: 'cmake [options] ../'
+	a) you can specify installation path by '-DCMAKE_INSTALL_PREFIX=...'
+	b) configuration can be alternatively changed by: 'ccmake ../'
+4) compile the program: 'make'
+	a) add '-jN' option to accelerate build process by using N processes
+5) generate the documentation (optional): 'make doc'
+6) install the program (and documentation): 'make install'
+	a) installed files are recorded in 'install_manifest.txt' file
+
+How to install on Windows:
+1) download and extract the source codes of this program
+2) run cmake-gui command (from command line or select it from the menu)
+3) select the source code directory
+4) create a build directory and select it in cmake-gui
+5) configure it to generate e.g. *.sln project
+6) open it in Microsoft Visual Studio 2013 or newer
+	a) build the source codes
+	b) install the program
+
+Execution of the program:
+Enter a directory with the program executable, which depends on the
+installation path ("generator/bin/" by default), and execute the following
+command to print the program help:
+
+'./GeneratorOfDatasets --help'
+
+Existing datasets and the generation of new ones:
+Our generated datasets and the used project configurations are located
+at 'datasets/' directory after the extraction of source codes.
+If you would like to check whether a generated/written dataset
+is valid against the xml schema (file named "dataset.xsd" in "xmlschema/")
+execute the following command:
+
+'xmllint --noout --schema dataset.xsd your_dataset.xml'
+
+Remark:
+If you find this software useful for your research or you create an algorithm
+based on this software, please cite our original paper in your publication list.
+
+Libor Bukata, Premysl Sucha, Zdenek Hanzalek, and Pavel Burget.
+Energy Optimization of Robotic Cells. Journal to be filled soon.

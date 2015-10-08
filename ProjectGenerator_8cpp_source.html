@@ -66,164 +66,164 @@
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">        You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">        along with GeneratorOfDatasets. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Settings_8h.html">Settings.h</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Generator_8h.html">Generator.h</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;GeneratorConfig.h&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ProjectParameters_8h.html">ProjectParameters.h</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ProjectParametersParser_8h.html">ProjectParametersParser.h</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="ProjectGenerator_8cpp.html#aa26e874aa0d15aec5e9dcc7b81be706d">   37</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="ProjectGenerator_8cpp.html#aa26e874aa0d15aec5e9dcc7b81be706d">ProgramReturnedCodes</a> {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        EXIT_WITH_SUCCESS = 0,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        INVALID_PARAMETER = 1,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        INSUFFICIENT_PARAMETERS = 2,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        INPUT_OUTPUT_ERROR = 4,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        RUNTIME_ERROR = 8,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        UNKNOWN_ERROR = 16</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Settings_8h.html">Settings.h</a>&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Generator_8h.html">Generator.h</a>&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;GeneratorConfig.h&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ProjectParameters_8h.html">ProjectParameters.h</a>&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ProjectParametersParser_8h.html">ProjectParametersParser.h</a>&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="ProjectGenerator_8cpp.html#aafbf0d4aed784b0b5fb50c7826c5f427">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ProjectGenerator_8cpp.html#aafbf0d4aed784b0b5fb50c7826c5f427">printProgramHeader</a>()       {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Generator of instances for energy optimisation of robotics lines.&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Author: Libor Bukata and Premysl Sucha&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Licence: GNU General Public License&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Version: &quot;</span>&lt;&lt;PROGRAM_VERSION&lt;&lt;endl&lt;&lt;endl;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="ProjectGenerator_8cpp.html#a6ed559c09b49419c91ccf56eac8a48b2">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ProjectGenerator_8cpp.html#a6ed559c09b49419c91ccf56eac8a48b2">printProgramHelp</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; progName)   {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="ProjectGenerator_8cpp.html#aafbf0d4aed784b0b5fb50c7826c5f427">printProgramHeader</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Usage:&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>&lt;&lt;progName&lt;&lt;<span class="stringliteral">&quot; [options+parameters]&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Options:&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--project-configuration-file ARG, -pcf ARG, ARG=FILE&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tIt reads the desired parameters of the project from the file.&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--number-of-instances ARG, -noi ARG, ARG=POSITIVE_INTEGER&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tThe number of generated instances for the project.&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--output-file ARG, -of ARG, ARG=FILE&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tOutput xml file to which the generated instances will be written.&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--set-dataset-title ARG, -sdt ARG, ARG=STRING&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tSet short title (&lt;name&gt;ARG&lt;/name&gt;) of the dataset.&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--help, -h&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tIt prints this program help.&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--verbose&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tIt also prints additional information (program header, progress bar, and runtime).&quot;</span>&lt;&lt;endl&lt;&lt;endl;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Default settings can be modified at \&quot;DefaultSettings.h\&quot; file.&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="ProjectGenerator_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">   83</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ProjectGenerator_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; argc; ++i)  {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordtype">string</span> arg = argv[i];</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--project-configuration-file&quot;</span> || arg == <span class="stringliteral">&quot;-pcf&quot;</span>)     {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        <span class="keywordflow">if</span> (i+1 &lt; argc) {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                Settings::PROJECT_CONFIGURATION_FILE = argv[++i];</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                cerr&lt;&lt;<span class="stringliteral">&quot;Project configuration file was not specified!&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                                <span class="keywordflow">return</span> INVALID_PARAMETER;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        }</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="ProjectGenerator_8cpp.html#aa26e874aa0d15aec5e9dcc7b81be706d">   47</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="ProjectGenerator_8cpp.html#aa26e874aa0d15aec5e9dcc7b81be706d">ProgramReturnedCodes</a> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        EXIT_WITH_SUCCESS = 0,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        INVALID_PARAMETER = 1,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        INSUFFICIENT_PARAMETERS = 2,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        INPUT_OUTPUT_ERROR = 4,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        RUNTIME_ERROR = 8,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        UNKNOWN_ERROR = 16</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="ProjectGenerator_8cpp.html#aafbf0d4aed784b0b5fb50c7826c5f427">   57</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ProjectGenerator_8cpp.html#aafbf0d4aed784b0b5fb50c7826c5f427">printProgramHeader</a>()       {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Generator of instances for energy optimisation of robotics lines.&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Author: Libor Bukata and Premysl Sucha&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Licence: GNU General Public License&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Version: &quot;</span>&lt;&lt;PROGRAM_VERSION&lt;&lt;endl&lt;&lt;endl;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="ProjectGenerator_8cpp.html#a6ed559c09b49419c91ccf56eac8a48b2">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ProjectGenerator_8cpp.html#a6ed559c09b49419c91ccf56eac8a48b2">printProgramHelp</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; progName)   {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="ProjectGenerator_8cpp.html#aafbf0d4aed784b0b5fb50c7826c5f427">printProgramHeader</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Usage:&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>&lt;&lt;progName&lt;&lt;<span class="stringliteral">&quot; [options+parameters]&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Options:&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--project-configuration-file ARG, -pcf ARG, ARG=FILE&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tIt reads the desired parameters of the project from the file.&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--number-of-instances ARG, -noi ARG, ARG=POSITIVE_INTEGER&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tThe number of generated instances for the project.&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--output-file ARG, -of ARG, ARG=FILE&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tOutput xml file to which the generated instances will be written.&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--set-dataset-title ARG, -sdt ARG, ARG=STRING&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tSet short title (&lt;name&gt;ARG&lt;/name&gt;) of the dataset.&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--help, -h&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tIt prints this program help.&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t--verbose&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;\t\tIt also prints additional information (program header, progress bar, and runtime).&quot;</span>&lt;&lt;endl&lt;&lt;endl;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        cout&lt;&lt;<span class="stringliteral">&quot;Default settings can be modified at \&quot;DefaultSettings.h\&quot; file.&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="ProjectGenerator_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">   93</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ProjectGenerator_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])        {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; argc; ++i)  {</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--number-of-instances&quot;</span> || arg == <span class="stringliteral">&quot;-noi&quot;</span>)    {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        <span class="keywordflow">if</span> (i+1 &lt; argc) {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                <span class="keywordtype">string</span> number = argv[++i];</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                istringstream istr(number, istringstream::in);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                istr&gt;&gt;Settings::NUMBER_OF_INSTANCES;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                <span class="keywordflow">if</span> (any_of(number.cbegin(), number.cend(), [](<span class="keywordtype">char</span> c) { <span class="keywordflow">return</span> (c &lt; &#39;0&#39; || c &gt; <span class="charliteral">&#39;9&#39;</span>) ? <span class="keyword">true</span> : <span class="keyword">false</span>; }) || istr.fail())  {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                        cerr&lt;&lt;<span class="stringliteral">&quot;Cannot parse &#39;&quot;</span>&lt;&lt;number&lt;&lt;<span class="stringliteral">&quot;&#39; to number!&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                        cout&lt;&lt;<span class="stringliteral">&quot;\&quot;--number-of-instances\&quot; invalid parameter!&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                                        <span class="keywordflow">return</span> INVALID_PARAMETER;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                                }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                        } <span class="keywordflow">else</span>  {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                                cout&lt;&lt;<span class="stringliteral">&quot;\&quot;--number-of-instances\&quot; requires the parameter!&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--output-file&quot;</span> || arg == <span class="stringliteral">&quot;-of&quot;</span>)     {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                        <span class="keywordflow">if</span> (i+1 &lt; argc) {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                                Settings::OUTPUT_FILE = argv[++i];</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                cerr&lt;&lt;<span class="stringliteral">&quot;\&quot;--output-file\&quot; requires the parameter!&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                                <span class="keywordflow">return</span> INVALID_PARAMETER;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--set-dataset-title&quot;</span> || arg == <span class="stringliteral">&quot;-sdt&quot;</span>)      {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                        <span class="keywordflow">if</span> (i+1 &lt; argc) {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                                Settings::DATASET_TITLE = argv[++i];</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                                cerr&lt;&lt;<span class="stringliteral">&quot;\&quot;--set-dataset-title\&quot; requires the parameter!&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                                <span class="keywordflow">return</span> INVALID_PARAMETER;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                        }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                }</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--verbose&quot;</span> || arg == <span class="stringliteral">&quot;-v&quot;</span>)  {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                        Settings::VERBOSE = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                }</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--help&quot;</span> || arg == <span class="stringliteral">&quot;-h&quot;</span>)     {</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                        <a class="code" href="ProjectGenerator_8cpp.html#a6ed559c09b49419c91ccf56eac8a48b2">printProgramHelp</a>(argv[0]);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                        <span class="keywordflow">return</span> EXIT_WITH_SUCCESS;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordtype">string</span> arg = argv[i];</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--project-configuration-file&quot;</span> || arg == <span class="stringliteral">&quot;-pcf&quot;</span>)     {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        <span class="keywordflow">if</span> (i+1 &lt; argc) {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                Settings::PROJECT_CONFIGURATION_FILE = argv[++i];</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                cerr&lt;&lt;<span class="stringliteral">&quot;Project configuration file was not specified!&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                <span class="keywordflow">return</span> INVALID_PARAMETER;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--number-of-instances&quot;</span> || arg == <span class="stringliteral">&quot;-noi&quot;</span>)    {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                        <span class="keywordflow">if</span> (i+1 &lt; argc) {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                                <span class="keywordtype">string</span> number = argv[++i];</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                                istringstream istr(number, istringstream::in);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                istr&gt;&gt;Settings::NUMBER_OF_INSTANCES;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                <span class="keywordflow">if</span> (any_of(number.cbegin(), number.cend(), [](<span class="keywordtype">char</span> c) { <span class="keywordflow">return</span> (c &lt; &#39;0&#39; || c &gt; <span class="charliteral">&#39;9&#39;</span>) ? <span class="keyword">true</span> : <span class="keyword">false</span>; }) || istr.fail())  {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                                        cerr&lt;&lt;<span class="stringliteral">&quot;Cannot parse &#39;&quot;</span>&lt;&lt;number&lt;&lt;<span class="stringliteral">&quot;&#39; to number!&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                                        cout&lt;&lt;<span class="stringliteral">&quot;\&quot;--number-of-instances\&quot; invalid parameter!&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                                        <span class="keywordflow">return</span> INVALID_PARAMETER;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                                }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                        } <span class="keywordflow">else</span>  {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                cout&lt;&lt;<span class="stringliteral">&quot;\&quot;--number-of-instances\&quot; requires the parameter!&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                        }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--output-file&quot;</span> || arg == <span class="stringliteral">&quot;-of&quot;</span>)     {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        <span class="keywordflow">if</span> (i+1 &lt; argc) {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                                Settings::OUTPUT_FILE = argv[++i];</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                                cerr&lt;&lt;<span class="stringliteral">&quot;\&quot;--output-file\&quot; requires the parameter!&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                                <span class="keywordflow">return</span> INVALID_PARAMETER;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                        }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--set-dataset-title&quot;</span> || arg == <span class="stringliteral">&quot;-sdt&quot;</span>)      {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                        <span class="keywordflow">if</span> (i+1 &lt; argc) {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                                Settings::DATASET_TITLE = argv[++i];</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                                cerr&lt;&lt;<span class="stringliteral">&quot;\&quot;--set-dataset-title\&quot; requires the parameter!&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                                <span class="keywordflow">return</span> INVALID_PARAMETER;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                        }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                        <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                }</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                cerr&lt;&lt;<span class="stringliteral">&quot;Unknown argument \&quot;&quot;</span>&lt;&lt;arg&lt;&lt;<span class="stringliteral">&quot;\&quot;!&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                cerr&lt;&lt;<span class="stringliteral">&quot;Check help by using \&quot;-h\&quot; or \&quot;--help\&quot; arguments.&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="keywordflow">return</span> INVALID_PARAMETER;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--verbose&quot;</span> || arg == <span class="stringliteral">&quot;-v&quot;</span>)  {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                        Settings::VERBOSE = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                }</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">if</span> (Settings::OUTPUT_FILE.empty())      {</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                cerr&lt;&lt;<span class="stringliteral">&quot;Insufficient parameters, at least the output file has to be specified!&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                cerr&lt;&lt;<span class="stringliteral">&quot;See the following program help...&quot;</span>&lt;&lt;endl&lt;&lt;endl;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                <a class="code" href="ProjectGenerator_8cpp.html#a6ed559c09b49419c91ccf56eac8a48b2">printProgramHelp</a>(argv[0]);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                <span class="keywordflow">return</span> INSUFFICIENT_PARAMETERS;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        }</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="keywordflow">if</span> (Settings::VERBOSE == <span class="keyword">true</span>)</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                        <a class="code" href="ProjectGenerator_8cpp.html#aafbf0d4aed784b0b5fb50c7826c5f427">printProgramHeader</a>();</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <a class="code" href="classProjectParametersParser.html">ProjectParametersParser</a> parser;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                <a class="code" href="structProjectParameters.html">ProjectParameters</a> parameters = parser.getParameters();</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <a class="code" href="classGenerator.html">Generator</a> generator;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                generator.setParameters(parameters);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                generator.<a class="code" href="classGenerator.html#ad14f1ec8bc5245790feba75beb8e991f">generateProblems</a>();</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        } <span class="keywordflow">catch</span> (invalid_argument e)    {</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                cerr&lt;&lt;e.what()&lt;&lt;endl;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <span class="keywordflow">return</span> INPUT_OUTPUT_ERROR;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        } <span class="keywordflow">catch</span> (runtime_error e)       {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                cerr&lt;&lt;e.what()&lt;&lt;endl;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                <span class="keywordflow">return</span> RUNTIME_ERROR;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        } <span class="keywordflow">catch</span> (exception&amp; e)  {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                cerr&lt;&lt;e.what()&lt;&lt;endl;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                <span class="keywordflow">return</span> UNKNOWN_ERROR;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        }</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">return</span> EXIT_WITH_SUCCESS;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
-<div class="ttc" id="ProjectGenerator_8cpp_html_aa26e874aa0d15aec5e9dcc7b81be706d"><div class="ttname"><a href="ProjectGenerator_8cpp.html#aa26e874aa0d15aec5e9dcc7b81be706d">ProgramReturnedCodes</a></div><div class="ttdeci">ProgramReturnedCodes</div><div class="ttdoc">Return codes of the program. </div><div class="ttdef"><b>Definition:</b> <a href="ProjectGenerator_8cpp_source.html#l00037">ProjectGenerator.cpp:37</a></div></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                <span class="keywordflow">if</span> (arg == <span class="stringliteral">&quot;--help&quot;</span> || arg == <span class="stringliteral">&quot;-h&quot;</span>)     {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                        <a class="code" href="ProjectGenerator_8cpp.html#a6ed559c09b49419c91ccf56eac8a48b2">printProgramHelp</a>(argv[0]);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                        <span class="keywordflow">return</span> EXIT_WITH_SUCCESS;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                cerr&lt;&lt;<span class="stringliteral">&quot;Unknown argument \&quot;&quot;</span>&lt;&lt;arg&lt;&lt;<span class="stringliteral">&quot;\&quot;!&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                cerr&lt;&lt;<span class="stringliteral">&quot;Check help by using \&quot;-h\&quot; or \&quot;--help\&quot; arguments.&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="keywordflow">return</span> INVALID_PARAMETER;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        }</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">if</span> (Settings::OUTPUT_FILE.empty())      {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                cerr&lt;&lt;<span class="stringliteral">&quot;Insufficient parameters, at least the output file has to be specified!&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                cerr&lt;&lt;<span class="stringliteral">&quot;See the following program help...&quot;</span>&lt;&lt;endl&lt;&lt;endl;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <a class="code" href="ProjectGenerator_8cpp.html#a6ed559c09b49419c91ccf56eac8a48b2">printProgramHelp</a>(argv[0]);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                <span class="keywordflow">return</span> INSUFFICIENT_PARAMETERS;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <span class="keywordflow">if</span> (Settings::VERBOSE == <span class="keyword">true</span>)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                        <a class="code" href="ProjectGenerator_8cpp.html#aafbf0d4aed784b0b5fb50c7826c5f427">printProgramHeader</a>();</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                <a class="code" href="classProjectParametersParser.html">ProjectParametersParser</a> parser;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                <a class="code" href="structProjectParameters.html">ProjectParameters</a> parameters = parser.getParameters();</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                <a class="code" href="classGenerator.html">Generator</a> generator;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                generator.setParameters(parameters);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                generator.<a class="code" href="classGenerator.html#ad14f1ec8bc5245790feba75beb8e991f">generateProblems</a>();</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        } <span class="keywordflow">catch</span> (invalid_argument e)    {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                cerr&lt;&lt;e.what()&lt;&lt;endl;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                <span class="keywordflow">return</span> INPUT_OUTPUT_ERROR;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        } <span class="keywordflow">catch</span> (runtime_error e)       {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                cerr&lt;&lt;e.what()&lt;&lt;endl;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                <span class="keywordflow">return</span> RUNTIME_ERROR;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        } <span class="keywordflow">catch</span> (exception&amp; e)  {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                cerr&lt;&lt;e.what()&lt;&lt;endl;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                <span class="keywordflow">return</span> UNKNOWN_ERROR;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">return</span> EXIT_WITH_SUCCESS;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;}</div>
+<div class="ttc" id="ProjectGenerator_8cpp_html_aa26e874aa0d15aec5e9dcc7b81be706d"><div class="ttname"><a href="ProjectGenerator_8cpp.html#aa26e874aa0d15aec5e9dcc7b81be706d">ProgramReturnedCodes</a></div><div class="ttdeci">ProgramReturnedCodes</div><div class="ttdoc">Return codes of the program. </div><div class="ttdef"><b>Definition:</b> <a href="ProjectGenerator_8cpp_source.html#l00047">ProjectGenerator.cpp:47</a></div></div>
 <div class="ttc" id="structProjectParameters_html"><div class="ttname"><a href="structProjectParameters.html">ProjectParameters</a></div><div class="ttdoc">The structure with desired properties for the generated instances. </div><div class="ttdef"><b>Definition:</b> <a href="ProjectParameters_8h_source.html#l00036">ProjectParameters.h:36</a></div></div>
-<div class="ttc" id="ProjectGenerator_8cpp_html_a6ed559c09b49419c91ccf56eac8a48b2"><div class="ttname"><a href="ProjectGenerator_8cpp.html#a6ed559c09b49419c91ccf56eac8a48b2">printProgramHelp</a></div><div class="ttdeci">void printProgramHelp(const string &amp;progName)</div><div class="ttdoc">It prints the program header and help. </div><div class="ttdef"><b>Definition:</b> <a href="ProjectGenerator_8cpp_source.html#l00058">ProjectGenerator.cpp:58</a></div></div>
+<div class="ttc" id="ProjectGenerator_8cpp_html_a6ed559c09b49419c91ccf56eac8a48b2"><div class="ttname"><a href="ProjectGenerator_8cpp.html#a6ed559c09b49419c91ccf56eac8a48b2">printProgramHelp</a></div><div class="ttdeci">void printProgramHelp(const string &amp;progName)</div><div class="ttdoc">It prints the program header and help. </div><div class="ttdef"><b>Definition:</b> <a href="ProjectGenerator_8cpp_source.html#l00068">ProjectGenerator.cpp:68</a></div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace. </div></div>
-<div class="ttc" id="ProjectGenerator_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="ProjectGenerator_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdoc">It handles the program command line arguments, reads desired properties of instances, generates and writes them to the xml file. </div><div class="ttdef"><b>Definition:</b> <a href="ProjectGenerator_8cpp_source.html#l00083">ProjectGenerator.cpp:83</a></div></div>
+<div class="ttc" id="ProjectGenerator_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="ProjectGenerator_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdoc">It handles the program command line arguments, reads desired properties of instances, generates and writes them to the xml file. </div><div class="ttdef"><b>Definition:</b> <a href="ProjectGenerator_8cpp_source.html#l00093">ProjectGenerator.cpp:93</a></div></div>
 <div class="ttc" id="Generator_8h_html"><div class="ttname"><a href="Generator_8h.html">Generator.h</a></div><div class="ttdoc">The file contains the Generator class. </div></div>
 <div class="ttc" id="classProjectParametersParser_html"><div class="ttname"><a href="classProjectParametersParser.html">ProjectParametersParser</a></div><div class="ttdoc">It reads the desired properties of instances from the text file. </div><div class="ttdef"><b>Definition:</b> <a href="ProjectParametersParser_8h_source.html#l00035">ProjectParametersParser.h:35</a></div></div>
 <div class="ttc" id="classGenerator_html_ad14f1ec8bc5245790feba75beb8e991f"><div class="ttname"><a href="classGenerator.html#ad14f1ec8bc5245790feba75beb8e991f">Generator::generateProblems</a></div><div class="ttdeci">void generateProblems(uint32_t numberOfProblems=Settings::NUMBER_OF_INSTANCES)</div><div class="ttdoc">It generates the specified number of instances and writes them to the xml file. </div><div class="ttdef"><b>Definition:</b> <a href="Generator_8cpp_source.html#l00030">Generator.cpp:30</a></div></div>
-<div class="ttc" id="ProjectGenerator_8cpp_html_aafbf0d4aed784b0b5fb50c7826c5f427"><div class="ttname"><a href="ProjectGenerator_8cpp.html#aafbf0d4aed784b0b5fb50c7826c5f427">printProgramHeader</a></div><div class="ttdeci">void printProgramHeader()</div><div class="ttdoc">It prints the program header to the standard output. </div><div class="ttdef"><b>Definition:</b> <a href="ProjectGenerator_8cpp_source.html#l00047">ProjectGenerator.cpp:47</a></div></div>
+<div class="ttc" id="ProjectGenerator_8cpp_html_aafbf0d4aed784b0b5fb50c7826c5f427"><div class="ttname"><a href="ProjectGenerator_8cpp.html#aafbf0d4aed784b0b5fb50c7826c5f427">printProgramHeader</a></div><div class="ttdeci">void printProgramHeader()</div><div class="ttdoc">It prints the program header to the standard output. </div><div class="ttdef"><b>Definition:</b> <a href="ProjectGenerator_8cpp_source.html#l00057">ProjectGenerator.cpp:57</a></div></div>
 <div class="ttc" id="ProjectParametersParser_8h_html"><div class="ttname"><a href="ProjectParametersParser_8h.html">ProjectParametersParser.h</a></div><div class="ttdoc">It declares the class for parsing the desired properties of project instances. </div></div>
 <div class="ttc" id="ProjectParameters_8h_html"><div class="ttname"><a href="ProjectParameters_8h.html">ProjectParameters.h</a></div><div class="ttdoc">The file declares the structure for storing the properties of generated instances. </div></div>
 <div class="ttc" id="Settings_8h_html"><div class="ttname"><a href="Settings_8h.html">Settings.h</a></div><div class="ttdoc">It declares the namespace for program settings. </div></div>
@@ -231,7 +231,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 8 2015 12:35:23 for generator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 8 2015 17:37:10 for generator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

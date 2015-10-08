@@ -1,0 +1,8 @@
+<map id="StaticActivity" name="StaticActivity">
+<area shape="rect" id="node2" href="$classActivity.html" title="The base class incorporating common properties for robot operations and movements. " alt="" coords="61,1078,209,1434"/>
+<area shape="rect" id="node5" href="$classLocation.html" title="It represents the location of robotic work. " alt="" coords="179,907,465,1013"/>
+<area shape="rect" id="node7" href="$classLocationDependentPowerConsumption.html" title="The class specifies input power of the robot for a particular robot configuration. " alt="" coords="177,565,468,672"/>
+<area shape="rect" id="node8" href="$classRobotPowerMode.html" title="It represents the power saving mode of the robot. " alt="" coords="228,291,417,501"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="281,149,363,227"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="257,6,387,98"/>
+</map>

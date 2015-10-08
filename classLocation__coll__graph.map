@@ -1,0 +1,6 @@
+<map id="Location" name="Location">
+<area shape="rect" id="node3" href="$classLocationDependentPowerConsumption.html" title="The class specifies input power of the robot for a particular robot configuration. " alt="" coords="5,565,296,672"/>
+<area shape="rect" id="node4" href="$classRobotPowerMode.html" title="It represents the power saving mode of the robot. " alt="" coords="56,291,245,501"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="109,149,191,227"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="85,6,215,98"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="InterRobotOperation" name="InterRobotOperation">
+<area shape="rect" id="node3" href="$classTimeLag.html" title="Instance of TimeLag class defines a time relation between two different robots. " alt="" coords="5,447,104,598"/>
+<area shape="rect" id="node4" href="$classActivity.html" title="The base class incorporating common properties for robot operations and movements. " alt="" coords="113,6,261,362"/>
+<area shape="rect" id="node9" href="$classPair.html" title="Auxiliary class encapsulating two activities to form collision or spatial compatibility pair..." alt="" coords="320,440,436,605"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="491,669,572,747"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="467,477,596,569"/>
+</map>

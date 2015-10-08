@@ -1,0 +1,4 @@
+<map id="Activity" name="Activity">
+<area shape="rect" id="node2" href="$classDynamicActivity.html" title="Collection of movements between two static activities. " alt="" coords="5,441,155,562"/>
+<area shape="rect" id="node3" href="$classStaticActivity.html" title="Collection of locations in which a robot operation can be performed. " alt="" coords="180,441,328,562"/>
+</map>

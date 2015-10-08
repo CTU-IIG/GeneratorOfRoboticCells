@@ -55,7 +55,7 @@ execute the following command:
 'xmllint --noout --schema dataset.xsd your_dataset.xml'
 
 Online documentation of the code:
-http://htmlpreview.github.com/?https://github.com/CTU-IIG/GeneratorOfRoboticCells/blob/master/documentation/index.html
+http://CTU-IIG.github.com/GeneratorOfRoboticCells
 
 Remark:
 If you find this software useful for your research or you create an algorithm

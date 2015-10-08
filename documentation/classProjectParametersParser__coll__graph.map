@@ -1,6 +1,0 @@
-<map id="ProjectParametersParser" name="ProjectParametersParser">
-<area shape="rect" id="node2" href="$structProjectParameters.html" title="The structure with desired properties for the generated instances. " alt="" coords="193,448,420,555"/>
-<area shape="rect" id="node3" href="$classInterval.html" title="{Interval\&lt; uint32_t \&gt;\n|&#45; mFrom\l&#45; mTo\l|+ Interval()\l+ Interval()\l+ from()\l+ to()\l}" alt="" coords="5,205,147,341"/>
-<area shape="rect" id="node4" href="$classInterval.html" title="{Interval\&lt; double \&gt;\n|&#45; mFrom\l&#45; mTo\l|+ Interval()\l+ Interval()\l+ from()\l+ to()\l}" alt="" coords="251,5,385,141"/>
-<area shape="rect" id="node5" href="$classInterval.html" title="{Interval\&lt; int32_t \&gt;\n|&#45; mFrom\l&#45; mTo\l|+ Interval()\l+ Interval()\l+ from()\l+ to()\l}" alt="" coords="605,205,740,341"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="/home/bukatlib/Downloads/GeneratorEquationsAsImages/inc/RoboticLine.h" name="/home/bukatlib/Downloads/GeneratorEquationsAsImages/inc/RoboticLine.h">
-<area shape="rect" id="node2" href="$RoboticLine_8cpp_source.html" title="/home/bukatlib/Downloads\l/GeneratorEquationsAsImages\l/src/RoboticLine.cpp" alt="" coords="5,109,219,165"/>
-<area shape="rect" id="node3" href="$Generator_8h.html" title="The file contains the Generator class. " alt="" coords="243,109,457,165"/>
-<area shape="rect" id="node6" href="$XmlWriter_8h.html" title="It primarily defines XmlWriter class for writing the generated instances to the file. " alt="" coords="482,109,696,165"/>
-<area shape="rect" id="node4" href="$Generator_8cpp_source.html" title="/home/bukatlib/Downloads\l/GeneratorEquationsAsImages\l/src/Generator.cpp" alt="" coords="362,213,576,269"/>
-<area shape="rect" id="node5" href="$ProjectGenerator_8cpp.html" title="Entry point of the program, it parses the command line arguments, generates instances, and writes them to the xml file. " alt="" coords="123,213,337,269"/>
-<area shape="rect" id="node7" href="$XmlWriter_8cpp_source.html" title="/home/bukatlib/Downloads\l/GeneratorEquationsAsImages\l/src/XmlWriter.cpp" alt="" coords="601,213,815,269"/>
-</map>

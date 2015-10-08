@@ -1,5 +1,0 @@
-<map id="DynamicActivity" name="DynamicActivity">
-<area shape="rect" id="node2" href="$classActivity.html" title="The base class incorporating common properties for robot operations and movements. " alt="" coords="59,563,207,919"/>
-<area shape="rect" id="node5" href="$classMovement.html" title="The class represents the robot movement between two coordinates. " alt="" coords="254,304,396,499"/>
-<area shape="rect" id="node7" href="$structMonomial.html" title="It represents the part of energy functions, i.e. &#160;where &#160;is the duration of the movement. " alt="" coords="284,6,365,98"/>
-</map>

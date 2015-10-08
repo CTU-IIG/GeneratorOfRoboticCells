@@ -20,6 +20,16 @@
  * \brief Entry point of the program, it parses the command line arguments, generates instances, and writes them to the xml file.
  */
 
+/*!
+ * \mainpage %Generator of Energy Optimization Problems
+ * \brief The purpose of this program is to generate optimization problems (datasets) for the energy optimization of robotic cells.
+ * \authors [Libor Bukata](mailto:bukatlib@fel.cvut.cz), [Premysl Sucha](mailto:suchap@fel.cvut.cz),
+ * [Zdenek Hanzalek](mailto:hanzalek@fel.cvut.cz), and [Pavel Burget](mailto:pavel.burget@fel.cvut.cz)<br>
+ * [Industrial Informatics Research Center](http://industrialinformatics.cz/), Czech Technical University in Prague
+ * \copyright This project is released under the GNU Public License.
+ * \see [Energy Optimizator of Robotic Cells](https://github.com/CTU-IIG/EnergyOptimizatorOfRoboticCells)
+ */
+
 #include <algorithm>
 #include <iostream>
 #include <string>

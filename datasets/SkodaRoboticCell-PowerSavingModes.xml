@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="dataset.xsd">
+	<instance>
+		<desc>Robotic line of SKODA auto</desc>
+		<robots>
+			<robot>
+				<name>rob560</name>
+				<activities>
+					<static-activity aid="0">
+						<desc>Welding and grip</desc>
+						<min-duration>26.59</min-duration>
+						<max-duration>26.59</max-duration>
+						<locations>
+							<location lid="0">
+								<point>0</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1075" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="1">
+						<desc>Put down the weldment</desc>
+						<min-duration>5.18</min-duration>
+						<max-duration>5.18</max-duration>
+						<locations>
+							<location lid="0">
+								<point>1</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1075" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="2" last_in_cycle="true" >
+						<desc>Waiting position</desc>
+						<min-duration>0.0</min-duration>
+						<max-duration>50.0</max-duration>
+						<locations>
+							<location lid="0">
+								<point>2</point>
+							</location>
+						</locations>
+					</static-activity>
+					<dynamic-activity aid="3">
+						<desc>Movement 1</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>2</from-point>
+								<to-point>0</to-point>
+								<min-duration>4.23</min-duration>
+								<max-duration>28.02</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="36796"/>
+									<monomial degree="0" coeff="-5448.9"/>
+									<monomial degree="1" coeff="962.74"/>
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="4">
+						<desc>Movement 2</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>0</from-point>
+								<to-point>1</to-point>
+								<min-duration>3.73</min-duration>
+								<max-duration>42.38</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="63919"/>
+									<monomial degree="0" coeff="-1838.8"/>
+									<monomial degree="1" coeff="962.78"/>
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="5">
+						<desc>Movement 3</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>1</from-point>
+								<to-point>2</to-point>
+								<min-duration>3.54</min-duration>
+								<max-duration>47.22</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="27342"/>
+									<monomial degree="0" coeff="4197.7"/>
+									<monomial degree="1" coeff="794.36"/>
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+				</activities>
+				<power-saving-modes>
+					<power-mode pid="0">
+						<!-- motors -->
+						<minimal-idle-time>0.0</minimal-idle-time>
+						<expected-input-power>726</expected-input-power>
+					</power-mode>
+					<power-mode pid="1">
+						<!-- brakes -->
+						<minimal-idle-time>2.0</minimal-idle-time>
+						<expected-input-power>247</expected-input-power>
+					</power-mode>
+					<power-mode pid="2">
+						<!-- bus-power-off -->
+						<minimal-idle-time>25.0</minimal-idle-time>
+						<expected-input-power>172</expected-input-power>
+					</power-mode>
+				</power-saving-modes>
+			</robot>
+			<robot>
+				<name>rob570</name>
+				<activities>
+					<static-activity aid="6">
+						<desc>Gripping 1</desc>
+						<min-duration>2.6</min-duration>
+						<max-duration>2.6</max-duration>
+						<locations>
+							<location lid="0">
+								<point>3</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1120" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="7">
+						<desc>Gripping 2</desc>
+						<min-duration>2.9</min-duration>
+						<max-duration>2.9</max-duration>
+						<locations>
+							<location lid="0">
+								<point>4</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1120" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="8">
+						<desc>Put down, move away, wait..</desc>
+						<min-duration>1.8</min-duration>
+						<max-duration>1.8</max-duration>
+						<locations>
+							<location lid="0">
+								<point>5</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1120" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="9">
+						<desc>Welding 1</desc>
+						<min-duration>3.5</min-duration>
+						<max-duration>3.5</max-duration>
+						<locations>
+							<location lid="0">
+								<point>6</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1120" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="10">
+						<desc>Welding 2</desc>
+						<min-duration>15.2</min-duration>
+						<max-duration>15.2</max-duration>
+						<locations>
+							<location lid="0">
+								<point>7</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1120" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="11" last_in_cycle="true" >
+						<desc>Waiting activity...</desc>
+						<min-duration>0.0</min-duration>
+						<max-duration>50.0</max-duration>
+						<locations>
+							<location lid="0">
+								<point>8</point>
+							</location>
+						</locations>
+					</static-activity>
+					<dynamic-activity aid="12">
+						<desc>Movement 1</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>8</from-point>
+								<to-point>3</to-point>
+								<min-duration>2.29</min-duration>
+								<max-duration>11.39</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="14232"/>
+									<monomial degree="0" coeff="-3421.1"/>
+									<monomial degree="1" coeff="1075.9"/>
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="13">
+						<desc>Movement 2</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>3</from-point>
+								<to-point>4</to-point>
+								<min-duration>1.93</min-duration>
+								<max-duration>12.77</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="9524.7" />
+									<monomial degree="0" coeff="-3139.3" />
+									<monomial degree="1" coeff="980.95" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="14">
+						<desc>Movement 3</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>4</from-point>
+								<to-point>5</to-point>
+								<min-duration>2.9</min-duration>
+								<max-duration>25.56</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="38747" />
+									<monomial degree="0" coeff="-3154.1" />
+									<monomial degree="1" coeff="1050.8" />
+								</energy-function>						
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="15">
+						<desc>Movement 4</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>5</from-point>
+								<to-point>6</to-point>
+								<min-duration>3.31</min-duration>
+								<max-duration>36.68</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="30034" />
+									<monomial degree="0" coeff="383.97" />
+									<monomial degree="1" coeff="803.46" />
+								</energy-function>								
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="16">
+						<desc>Movement 5</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>6</from-point>
+								<to-point>7</to-point>
+								<min-duration>3.25</min-duration>
+								<max-duration>44.62</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="28828" />
+									<monomial degree="0" coeff="-491.9" />
+									<monomial degree="1" coeff="787.56" />
+								</energy-function>								
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="17">
+						<desc>Movement 6</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>7</from-point>
+								<to-point>8</to-point>
+								<min-duration>2.17</min-duration>
+								<max-duration>20.39</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="13703" />
+									<monomial degree="0" coeff="2726.6" />
+									<monomial degree="1" coeff="835.18" />
+								</energy-function>								
+							</movement>
+						</movements>
+					</dynamic-activity>
+				</activities>
+				<power-saving-modes>
+					<power-mode pid="0">
+						<!-- motors -->
+						<minimal-idle-time>0.0</minimal-idle-time>
+						<expected-input-power>751</expected-input-power>
+					</power-mode>
+					<power-mode pid="1">
+						<!-- brakes -->
+						<minimal-idle-time>2.0</minimal-idle-time>
+						<expected-input-power>255</expected-input-power>
+					</power-mode>
+					<power-mode pid="2">
+						<!-- bus-power-off -->
+						<minimal-idle-time>25.0</minimal-idle-time>
+						<expected-input-power>178</expected-input-power>
+					</power-mode>
+				</power-saving-modes>
+			</robot>
+			<robot>
+				<name>rob585</name>
+				<activities>
+					<static-activity aid="18">
+						<desc>Gripping</desc>
+						<min-duration>1.66</min-duration>
+						<max-duration>1.66</max-duration>
+						<locations>
+							<location lid="0">
+								<point>9</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1470" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="19">
+						<desc>Glue</desc>
+						<min-duration>19.02</min-duration>
+						<max-duration>19.02</max-duration>
+						<locations>
+							<location lid="0">
+								<point>10</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1470" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="20">
+						<desc>Put down</desc>
+						<min-duration>5.42</min-duration>
+						<max-duration>5.42</max-duration>
+						<locations>
+							<location lid="0">
+								<point>11</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1470" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="21" last_in_cycle="true" >
+						<desc>Waiting...</desc>
+						<min-duration>0.0</min-duration>
+						<max-duration>50.0</max-duration>
+						<locations>
+							<location lid="0">
+								<point>12</point>
+							</location>
+						</locations>
+					</static-activity>
+					<dynamic-activity aid="22">
+						<desc>Movement 1</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>12</from-point>
+								<to-point>9</to-point>
+								<min-duration>1.73</min-duration>
+								<max-duration>10.25</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="5796" />
+									<monomial degree="0" coeff="-805.66" />
+									<monomial degree="1" coeff="768.2" />
+								</energy-function>								
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="23">
+						<desc>Movement 2</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>9</from-point>
+								<to-point>10</to-point>
+								<min-duration>1.96</min-duration>
+								<max-duration>28.69</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="4893.9" />
+									<monomial degree="0" coeff="569.87" />
+									<monomial degree="1" coeff="585.64" />
+								</energy-function>								
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="24">
+						<desc>Movement 3</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>10</from-point>
+								<to-point>11</to-point>
+								<min-duration>2.89</min-duration>
+								<max-duration>36.67</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="16484" />
+									<monomial degree="0" coeff="2082.3" />
+									<monomial degree="1" coeff="601.78" />
+								</energy-function>								
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="25">
+						<desc>Movement 4</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>11</from-point>
+								<to-point>12</to-point>
+								<min-duration>2.98</min-duration>
+								<max-duration>39.25</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="26408" />
+									<monomial degree="0" coeff="2496.8" />
+									<monomial degree="1" coeff="649.85" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+				</activities>
+				<power-saving-modes>
+					<power-mode pid="0">
+						<!-- motors -->
+						<minimal-idle-time>0.0</minimal-idle-time>
+						<expected-input-power>567</expected-input-power>
+					</power-mode>
+					<power-mode pid="1">
+						<!-- brakes -->
+						<minimal-idle-time>2.0</minimal-idle-time>
+						<expected-input-power>218</expected-input-power>
+					</power-mode>
+					<power-mode pid="2">
+						<!-- bus-power-off -->
+						<minimal-idle-time>25.0</minimal-idle-time>
+						<expected-input-power>153</expected-input-power>
+					</power-mode>
+				</power-saving-modes>		
+			</robot>
+			<robot>
+				<name>rob590</name>
+				<activities>
+					<static-activity aid="26">
+						<desc>Welding</desc>
+						<min-duration>21.7</min-duration>
+						<max-duration>21.7</max-duration>
+						<locations>
+							<location lid="0">
+								<point>13</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1715" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="27" last_in_cycle="true" >
+						<desc>Waiting..</desc>
+						<min-duration>0.0</min-duration>
+						<max-duration>50.0</max-duration>
+						<locations>
+							<location lid="0">
+								<point>14</point>
+							</location>
+						</locations>
+					</static-activity>
+					<dynamic-activity aid="28">
+						<desc>Movement 1</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>14</from-point>
+								<to-point>13</to-point>
+								<min-duration>2.28</min-duration>
+								<max-duration>16.12</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="18113" />
+									<monomial degree="0" coeff="-2453.9" />
+									<monomial degree="1" coeff="870.08" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="29">
+						<desc>Movement 2</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>13</from-point>
+								<to-point>14</to-point>
+								<min-duration>2.48</min-duration>
+								<max-duration>24.19</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="15933" />
+									<monomial degree="0" coeff="-1019.8" />
+									<monomial degree="1" coeff="690.66" />
+								</energy-function>
+							</movement>
+						</movements>	
+					</dynamic-activity>
+				</activities>
+				<power-saving-modes>
+					<power-mode pid="0">
+						<!-- motors -->
+						<minimal-idle-time>0.0</minimal-idle-time>
+						<expected-input-power>683</expected-input-power>
+					</power-mode>
+					<power-mode pid="1">
+						<!-- brakes -->
+						<minimal-idle-time>2.0</minimal-idle-time>
+						<expected-input-power>264</expected-input-power>
+					</power-mode>
+					<power-mode pid="2">
+						<!-- bus-power-off -->
+						<minimal-idle-time>25.0</minimal-idle-time>
+						<expected-input-power>185</expected-input-power>
+					</power-mode>
+				</power-saving-modes>		
+			</robot>
+			<robot>
+				<name>rob580</name>
+				<activities>
+					<static-activity aid="30">
+						<desc>Gripping</desc>
+						<min-duration>2.74</min-duration>
+						<max-duration>2.74</max-duration>
+						<locations>
+							<location lid="0">
+								<point>15</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="884" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="31">
+						<desc>Welding</desc>
+						<min-duration>14.41</min-duration>
+						<max-duration>14.41</max-duration>
+						<locations>
+							<location lid="0">
+								<point>16</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="884" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="32">
+						<desc>Put down..</desc>
+						<min-duration>4.8</min-duration>
+						<max-duration>4.8</max-duration>						
+						<locations>
+							<location lid="0">
+								<point>17</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="884" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="33" last_in_cycle="true" >
+						<desc>Waiting..</desc>
+						<min-duration>0.0</min-duration>
+						<max-duration>50.0</max-duration>						
+						<locations>
+							<location lid="0">
+								<point>18</point>
+							</location>
+						</locations>
+					</static-activity>
+					<dynamic-activity aid="34">
+						<desc>Movement 1</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>18</from-point>
+								<to-point>15</to-point>
+								<min-duration>2.08</min-duration>
+								<max-duration>18.3</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="20882" />
+									<monomial degree="0" coeff="-680.72" />
+									<monomial degree="1" coeff="796.5" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="35">
+						<desc>Movement 2</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>15</from-point>
+								<to-point>16</to-point>
+								<min-duration>7.34</min-duration>
+								<max-duration>63.05</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="146770" />
+									<monomial degree="0" coeff="-4620" />
+									<monomial degree="1" coeff="717.31" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="36">
+						<desc>Movement 3</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>16</from-point>
+								<to-point>17</to-point>
+								<min-duration>4.56</min-duration>
+								<max-duration>19.2</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="39222" />
+									<monomial degree="0" coeff="-5978" />
+									<monomial degree="1" coeff="856.11" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="37">
+						<desc>Movement 4</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>17</from-point>
+								<to-point>18</to-point>
+								<min-duration>2.59</min-duration>
+								<max-duration>29.65</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="10025" />
+									<monomial degree="0" coeff="973.38" />
+									<monomial degree="1" coeff="632.02" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+				</activities>
+				<power-saving-modes>
+					<power-mode pid="0">
+						<!-- motors -->
+						<minimal-idle-time>0.0</minimal-idle-time>
+						<expected-input-power>680</expected-input-power>
+					</power-mode>
+					<power-mode pid="1">
+						<!-- brakes -->
+						<minimal-idle-time>2.0</minimal-idle-time>
+						<expected-input-power>278</expected-input-power>
+					</power-mode>
+					<power-mode pid="2">
+						<!-- bus-power-off -->
+						<minimal-idle-time>25.0</minimal-idle-time>
+						<expected-input-power>195</expected-input-power>
+					</power-mode>
+				</power-saving-modes>				
+			</robot>
+			<robot>
+				<name>rob595</name>
+				<activities>
+					<static-activity aid="38">
+						<desc>Gripping</desc>
+						<min-duration>8.47</min-duration>
+						<max-duration>8.47</max-duration>						
+						<locations>
+							<location lid="0">
+								<point>19</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1185" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="39">
+						<desc>Welding</desc>
+						<min-duration>26.32</min-duration>
+						<max-duration>26.32</max-duration>						
+						<locations>
+							<location lid="0">
+								<point>20</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1185" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="40">
+						<desc>Put down..</desc>
+						<min-duration>2.02</min-duration>
+						<max-duration>2.02</max-duration>						
+						<locations>
+							<location lid="0">
+								<point>21</point>
+								<location-dependent-power-consumption>
+									<consumption pid="0" input_power="1185" />
+									<consumption pid="1" input_power="10000" />
+									<consumption pid="2" input_power="10000" />
+								</location-dependent-power-consumption>
+							</location>
+						</locations>
+					</static-activity>
+					<static-activity aid="41" last_in_cycle="true" >
+						<desc>Waiting</desc>
+						<min-duration>0.0</min-duration>
+						<max-duration>50.0</max-duration>						
+						<locations>
+							<location lid="0">
+								<point>22</point>
+							</location>
+						</locations>
+					</static-activity>
+					<dynamic-activity aid="42">
+						<desc>Movement 1</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>22</from-point>
+								<to-point>19</to-point>
+								<min-duration>2.6</min-duration>
+								<max-duration>25.98</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="11437" />
+									<monomial degree="0" coeff="1174.2" />
+									<monomial degree="1" coeff="637.06" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="43">
+						<desc>Movement 2</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>19</from-point>
+								<to-point>20</to-point>
+								<min-duration>2.26</min-duration>
+								<max-duration>31.33</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="15163" />
+									<monomial degree="0" coeff="1754.9" />
+									<monomial degree="1" coeff="617.92" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>	
+					<dynamic-activity aid="44">
+						<desc>Movement 3</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>20</from-point>
+								<to-point>21</to-point>
+								<min-duration>2.38</min-duration>
+								<max-duration>25</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="11510" />
+									<monomial degree="0" coeff="742.33" />
+									<monomial degree="1" coeff="626.67" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+					<dynamic-activity aid="45">
+						<desc>Movement 4</desc>
+						<movements>
+							<movement mid="0">
+								<from-point>21</from-point>
+								<to-point>22</to-point>
+								<min-duration>2.27</min-duration>
+								<max-duration>26.27</max-duration>
+								<energy-function>
+									<monomial degree="-1" coeff="11393" />
+									<monomial degree="0" coeff="872.57" />
+									<monomial degree="1" coeff="617.32" />
+								</energy-function>
+							</movement>
+						</movements>
+					</dynamic-activity>
+				</activities>
+				<power-saving-modes>
+					<power-mode pid="0">
+						<!-- motors -->
+						<minimal-idle-time>0.0</minimal-idle-time>
+						<expected-input-power>619</expected-input-power>
+					</power-mode>
+					<power-mode pid="1">
+						<!-- brakes -->
+						<minimal-idle-time>2.0</minimal-idle-time>
+						<expected-input-power>253</expected-input-power>
+					</power-mode>
+					<power-mode pid="2">
+						<!-- bus-power-off -->
+						<minimal-idle-time>25.0</minimal-idle-time>
+						<expected-input-power>177</expected-input-power>
+					</power-mode>
+				</power-saving-modes>
+			</robot>
+		</robots>
+		<inter-robot-operations>
+			<operation oid="0">
+				<name>Cooperation1</name>
+				<desc>Rob 560, 570, 580</desc>
+				<time-compatibility>
+					<time-lag>
+						<from-activity>8</from-activity>
+						<to-activity>1</to-activity>
+						<length>4</length>
+						<height>0</height>
+					</time-lag>
+					<time-lag>
+						<from-activity>5</from-activity>
+						<to-activity>9</to-activity>
+						<length>3</length>
+						<height>0</height>
+					</time-lag>
+					<time-lag>
+						<from-activity>17</from-activity>
+						<to-activity>30</to-activity>
+						<length>3</length>
+						<height>0</height>
+					</time-lag>
+					<time-lag>
+						<from-activity>35</from-activity>
+						<to-activity>8</to-activity>
+						<length>3</length>
+						<height>1</height>
+					</time-lag>
+				</time-compatibility>
+			</operation>
+			<operation oid="1">
+				<name>Cooperation2</name>
+				<desc>Rob 580, 585, 590, 595</desc>
+				<time-compatibility>
+					<time-lag>
+						<from-activity>37</from-activity>
+						<to-activity>26</to-activity>
+						<length>2.5</length>
+						<height>0</height>
+					</time-lag>
+					<time-lag>
+						<from-activity>25</from-activity>
+						<to-activity>26</to-activity>
+						<length>2.5</length>
+						<height>0</height>
+					</time-lag>
+					<time-lag>
+						<from-activity>29</from-activity>
+						<to-activity>38</to-activity>
+						<length>3</length>
+						<height>0</height>
+					</time-lag>
+					<time-lag>
+						<from-activity>43</from-activity>
+						<to-activity>20</to-activity>
+						<length>3</length>
+						<height>1</height>
+					</time-lag>
+					<time-lag>
+						<from-activity>43</from-activity>
+						<to-activity>32</to-activity>
+						<length>3</length>
+						<height>1</height>
+					</time-lag>
+				</time-compatibility>
+			</operation>
+		</inter-robot-operations>
+		<production-cycle-time>55.84</production-cycle-time>
+	</instance>
+</dataset>
